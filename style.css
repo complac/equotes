@@ -78,29 +78,21 @@ button:hover {
     transform: translateY(-5px); 
 }
 
-/* Discord Vanity Button – perfectly centered at the bottom */
-.discord-invite {
+/* Clean Discord text link – centered bottom */
+.discord-text {
     position: fixed;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    background: rgba(88, 101, 242, 0.15);
-    backdrop-filter: blur(10px);
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 12px 32px;
-    border: 1.5px solid rgba(88, 101, 242, 0.5);
-    border-radius: 50px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
     text-decoration: none;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 20px rgba(88, 101, 242, 0.2);
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 
-.discord-invite:hover {
-    background: rgba(88, 101, 242, 0.3);
-    border-color: #5865f2;
-    transform: translateX(-50%) translateY(-4px);
-    box-shadow: 0 8px 30px rgba(88, 101, 242, 0.4);
+.discord-text:hover {
+    color: #5865f2;
+    text-shadow: 0 0 10px rgba(88, 101, 242, 0.6);
 }
