@@ -78,12 +78,13 @@ button:hover {
     transform: translateY(-5px); 
 }
 
-/* discord.gg/quotes directly under the generate button */
+/* discord.gg/quotes — bold + more space below generate button */
 .discord-text {
-    margin-top: 2.5rem;
-    color: rgba(255, 255, 255, 0.45);
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+    margin-top: 3.8rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.6px;
     user-select: none;
     pointer-events: none;
 }
