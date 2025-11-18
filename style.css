@@ -78,10 +78,10 @@ button:hover {
     transform: translateY(-5px); 
 }
 
-/* Final perfect spacing — clean, bold, and nicely under generate */
+/* discord.gg/quotes — pulled very close under the generate button */
 .discord-text {
-    margin-top: 3.2rem;           /* ← perfect breathing room under the button */
-    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1.4rem;           /* ← super close now, just a tiny gap */
+    color: rgba(255, 255, 255, 0.75);
     font-size: 0.95rem;
     font-weight: bold;
     letter-spacing: 0.7px;
