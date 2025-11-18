@@ -78,9 +78,9 @@ button:hover {
     transform: translateY(-5px); 
 }
 
-/* discord.gg/quotes — bold + more space below generate button */
+/* discord.gg/quotes — pushed way down under generate button */
 .discord-text {
-    margin-top: 3.8rem;
+    margin-top: 5.5rem;           /* ← even more space now */
     color: rgba(255, 255, 255, 0.65);
     font-size: 0.95rem;
     font-weight: bold;
