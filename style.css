@@ -78,21 +78,20 @@ button:hover {
     transform: translateY(-5px); 
 }
 
-/* Clean Discord text link – centered bottom */
+/* Discord text – normal white/gray, no underline, true bottom of screen */
 .discord-text {
     position: fixed;
-    bottom: 30px;
+    bottom: 18px;           /* almost touching the bottom edge */
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.9rem;
     text-decoration: none;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    pointer-events: none;   /* makes it non-clickable if you want pure text */
+    /* remove pointer-events: none; and add cursor: default; if you still want it clickable */
 }
 
 .discord-text:hover {
-    color: #5865f2;
-    text-shadow: 0 0 10px rgba(88, 101, 242, 0.6);
+    color: rgba(255, 255, 255, 0.7);
 }
