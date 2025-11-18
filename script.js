@@ -7,8 +7,6 @@ const quotes = [
     { text: "In the middle of difficulty lies opportunity.", author: "Albert Einstein" },
     { text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" },
     { text: "Whether you think you can or you think you can’t, you’re right.", author: "Henry Ford" },
-
-    // ← NEW ONES START HERE
     { text: "Not all storms come to disrupt your life; some come to clear your path.", author: "Unknown" },
     { text: "The wound is the place where the light enters you.", author: "Rumi" },
     { text: "You are the sky. Everything else is just the weather.", author: "Pema Chödrön" },
@@ -51,15 +49,23 @@ function showQuote() {
         authorEl.classList.add("show");
     });
 }
+
 btn.addEventListener("click", showQuote);
 showQuote();
 
-// ——— Particle Trail ———
+// Disable right-click + common dev-tools shortcuts
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("keydown", e => {
+    if (e.key === "F12" || (e.ctrlKey && (e.key === "u" || e.key === "c" || e.key === "s" || (e.shiftKey && e.key === "I")))) {
+        e.preventDefault();
+    }
+});
+
+// ——— Particle Trail (unchanged) ———
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 const particles = [];
 const colors = ['#00ffff','#ff00ff','#ffff00','#00ff00','#ff0066'];
 let mouse = { x: 0, y: 0 };
