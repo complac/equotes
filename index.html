@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>equotes</title>
+    <title>equotes & poems</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="particles"></canvas>
+
     <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="quotes">quotes</button>
+            <button class="tab-btn" data-tab="poems">poems</button>
+        </div>
+
         <div class="content">
-            <p id="quote" class="fade">click below for inspiration</p>
+            <p id="text" class="fade">click below for inspiration</p>
             <p id="author" class="fade"></p>
-            <button id="new-quote">generate</button>
-            <p class="discord-text">/quotes for the world</p>
+            <button id="new-btn">generate</button>
+            <p class="discord-text">quotes & poems for the world</p>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
