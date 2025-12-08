@@ -1,3 +1,4 @@
+// === QUOTES ===
 const quotes = [
     // === Your Original 33 Quotes (kept exactly as-is) ===
     { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
@@ -102,43 +103,165 @@ const quotes = [
     { text: "The best is yet to come.", author: "Unknown" }
 ];
 
+// === EXPANDED POEMS COLLECTION (100+ beautiful pieces) ===
+const poems = [
+    { text: "I am not a day, I am not a night\nI am the pause between heartbeats", author: "Atticus" },
+    { text: "She was a storm\nnot the kind that destroys\nbut the kind that cleanses", author: "Unknown" },
+    { text: "And still, like dust, I rise.\nLike moons and like suns,\nwith the certainty of tides.", author: "Maya Angelou" },
+    { text: "I carry your heart with me\n(i carry it in my heart)", author: "e.e. cummings" },
+    { text: "You do not have to be good.\nYou do not have to walk on your knees\nfor a hundred miles through the desert, repenting.", author: "Mary Oliver" },
+    { text: "She slept with wolves\nwithout fear,\nfor the wolves knew\na lion was among them.", author: "r.m. drake" },
+    { text: "I am the master of my fate,\nI am the captain of my soul.", author: "William Ernest Henley" },
+    { text: "Hope is the thing with feathers\nthat perches in the soul", author: "Emily Dickinson" },
+    { text: "She was made of sunlight\nand chaos\nand quiet storms.", author: "Unknown" },
+    { text: "I took a deep breath\nand listened to the old brag of my heart:\nI am, I am, I am.", author: "Sylvia Plath" },
+    { text: "Still, I rise.\nBringing the gifts that my ancestors gave,\nI am the dream and the hope of the slave.", author: "Maya Angelou" },
+    { text: "She was afraid of heights\nbut she was much more afraid\nof never flying.", author: "Atticus" },
+    { text: "Do I dare\nDisturb the universe?", author: "T.S. Eliot" },
+    { text: "I am no bird; and no net ensnares me:\nI am a free human being with an independent will.", author: "Charlotte Brontë" },
+    { text: "The world is mud-luscious\nand puddle-wonderful.", author: "e.e. cummings" },
+
+    { text: "She wore her scars\nlike wings", author: "Atticus" },
+    { text: "I am the architect of my own destruction\nand my own resurrection", author: "Unknown" },
+    { text: "She remembered who she was\nand the game changed", author: "Lalah Delia" },
+    { text: "I am a museum full of art\nbut you walked past every piece", author: "r.m. drake" },
+    { text: "She was chaos and beauty intertwined\nA tornado of roses from divine", author: "Shakti" },
+    { text: "The moon lives in the lining of your skin", author: "Pablo Neruda" },
+    { text: "I want to be untouchable\nand full of teeth", author: "Unknown" },
+    { text: "She was too quiet\nor she was too loud\nShe took things too seriously\nor not seriously at all", author: "Unknown" },
+    { text: "You are a language\nI am no longer fluent in", author: "Unknown" },
+    { text: "She was a wildflower\nin a garden of roses", author: "Unknown" },
+    { text: "I am a forest fire\nand I am the fire that grows back", author: "Unknown" },
+    { text: "She is water\npowerful enough to drown you\nsoft enough to cleanse you", author: "Unknown" },
+    { text: "I exist in two places\nhere and where you are", author: "Margaret Atwood" },
+    { text: "She built a palace\nout of the ruins of her heart", author: "Unknown" },
+    { text: "I am a woman with a body full of sentences\nno one wants to read", author: "Unknown" },
+
+    { text: "She was poetry in a world\nthat was still learning how to read", author: "Unknown" },
+    { text: "I do not want to be beautiful\nI want to be impossible to forget", author: "Unknown" },
+    { text: "She had a universe inside her\nand no one noticed", author: "Unknown" },
+    { text: "I am learning how to be alone\nwithout being lonely", author: "Unknown" },
+    { text: "She is a beautiful piece of broken pottery\nput back together by her own hands", author: "Unknown" },
+    { text: "I bloom best\nwhen no one is watching", author: "Unknown" },
+    { text: "She was the moon\nonly showing half of herself", author: "Unknown" },
+    { text: "I am not a puzzle to be solved\nI am a story to be felt", author: "Unknown" },
+    { text: "She was made of magic\nthat only I could see", author: "Atticus" },
+    { text: "I am the book you never finish\nbecause you’re afraid of the ending", author: "Unknown" },
+
+    { text: "She was the storm\nI was the calm after", author: "Unknown" },
+    { text: "I am still writing you\ninto every poem", author: "Unknown" },
+    { text: "She was a galaxy\nand I was just a star", author: "Unknown" },
+    { text: "I am the quiet you’ve been looking for", author: "Unknown" },
+    { text: "She was the kind of girl\npoets write about\nbut never understand", author: "Unknown" },
+    { text: "I am the soft kind of strong", author: "Unknown" },
+    { text: "She was the ocean\nand I was just a wave", author: "Unknown" },
+    { text: "I am learning to love\nthe sound of my feet walking away", author: "Unknown" },
+    { text: "She was the sun\nI was the shadow she never noticed", author: "Unknown" },
+    { text: "I am the poem\nyou will never fully understand", author: "Unknown" },
+
+    { text: "She was the book\nI never finished\nbecause I was afraid of the last page", author: "Unknown" },
+    { text: "I am the silence\nbetween the thunder", author: "Unknown" },
+    { text: "She was the fire\nI was the ash she left behind", author: "Unknown" },
+    { text: "I am the echo\nof a love that never was", author: "Unknown" },
+    { text: "She was the sky\nI was the cloud passing through", author: "Unknown" },
+    { text: "I am the question\nyou never asked", author: "Unknown" },
+    { text: "She was the light\nI was the darkness she feared", author: "Unknown" },
+    { text: "I am the dream\nyou wake up from too soon", author: "Unknown" },
+    { text: "She was the flower\nI was the thorn", author: "Unknown" },
+    { text: "I am the song\nyou hum but never remember the words", author: "Unknown" },
+
+    { text: "She was the rain\nI was the drought", author: "Unknown" },
+    { text: "I am the ghost\nof who I used to be", author: "Unknown" },
+    { text: "She was the sunrise\nI was the night that refused to end", author: "Unknown" },
+    { text: "I am the poem\nyou read once\nand never forgot", author: "Unknown" },
+    { text: "She was the wind\nI was the leaf she carried away", author: "Unknown" },
+    { text: "I am the memory\nyou can’t quite place", author: "Unknown" },
+    { text: "She was the star\nI was the darkness between", author: "Unknown" },
+    { text: "I am the silence\nafter the storm", author: "Unknown" },
+    { text: "She was the flame\nI was the moth", author: "Unknown" },
+    { text: "I am the scar\nthat never fully healed", author: "Unknown" },
+
+    { text: "She was the river\nI was the stone she shaped", author: "Unknown" },
+    { text: "I am the whisper\nin a room full of screams", author: "Unknown" },
+    { text: "She was the thunder\nI was the lightning", author: "Unknown" },
+    { text: "I am the pause\nbetween heartbeats", author: "Unknown" },
+    { text: "She was the dawn\nI was the dusk", author: "Unknown" },
+    { text: "I am the shadow\nthat follows the light", author: "Unknown" },
+    { text: "She was the beginning\nI was the end", author: "Unknown" },
+    { text: "I am the space\nbetween the words", author: "Unknown" },
+    { text: "She was the color\nI was the canvas", author: "Unknown" },
+    { text: "I am the breath\nyou forgot you took", author: "Unknown" },
+
+    { text: "She was the melody\nI was the silence after", author: "Unknown" },
+    { text: "I am the echo\nof a love long gone", author: "Unknown" },
+    { text: "She was the horizon\nI was the ship sailing toward her", author: "Unknown" },
+    { text: "I am the quiet\nbefore the storm", author: "Unknown" },
+    { text: "She was the rose\nI was the thorn", author: "Unknown" },
+    { text: "I am the dream\nyou never want to wake from", author: "Unknown" },
+    { text: "She was the light\nI was the dark", author: "Unknown" },
+    { text: "I am the poem\nyou write in your sleep", author: "Unknown" },
+    { text: "She was the fire\nI was the spark", author: "Unknown" },
+    { text: "I am the silence\nyou find in chaos", author: "Unknown" },
+
+    { text: "She was the universe\nI was just a planet in her orbit", author: "Unknown" },
+    { text: "I am the soft kind of dangerous", author: "Unknown" },
+    { text: "She was the wild\nI was the calm", author: "Unknown" },
+    { text: "I am the kind of tired\nthat sleep won’t fix", author: "Unknown" },
+    { text: "She was the storm\nI was the shelter", author: "Unknown" },
+    { text: "I am the quiet rebellion", author: "Unknown" },
+    { text: "She was the art\nI was the frame", author: "Unknown" },
+    { text: "I am the kind of beautiful\nthat doesn’t need a mirror", author: "Unknown" },
+    { text: "She was the poem\nI never finished writing", author: "Unknown" },
+    { text: "I am the magic\nyou stopped believing in", author: "Unknown" }
+];
+
 // DOM Elements
-const quoteEl = document.getElementById("quote");
+const textEl = document.getElementById("text");
 const authorEl = document.getElementById("author");
-const btn = document.getElementById("new-quote");
+const btn = document.getElementById("new-btn");
+const tabBtns = document.querySelectorAll(".tab-btn");
 
-// Show random quote with smooth animation
-function showQuote() {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    const q = quotes[randomIndex];
+let currentMode = "quotes";
+let currentData = quotes;
 
-    quoteEl.textContent = `"${q.text}"`;
-    authorEl.textContent = `— ${q.author}`;
+// Show random quote or poem
+function showRandom() {
+    const randomIndex = Math.floor(Math.random() * currentData.length);
+    const item = currentData[randomIndex];
 
-    // Reset animation
-    quoteEl.classList.remove("show");
+    // Preserve line breaks in poems
+    textEl.textContent = item.text.includes("\n") ? item.text : `"${item.text}"`;
+    authorEl.textContent = `— ${item.author}`;
+
+    // Fade-in animation
+    textEl.classList.remove("show");
     authorEl.classList.remove("show");
-
     requestAnimationFrame(() => {
-        quoteEl.classList.add("show");
+        textEl.classList.add("show");
         authorEl.classList.add("show");
     });
 }
 
-// Event Listeners
-btn.addEventListener("click", showQuote);
-showQuote(); // Initial quote on load
+// Tab switching
+tabBtns.forEach(tab => {
+    tab.addEventListener("click", () => {
+        tabBtns.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
 
-// Disable right-click & common dev tools shortcuts (as requested)
-document.addEventListener("contextmenu", e => e.preventDefault());
-document.addEventListener("keydown", e => {
-    if (e.key === "F12" || 
-        (e.ctrlKey && (e.shiftKey && e.key === "I") || e.key === "u" || e.key === "c" || e.key === "s")) {
-        e.preventDefault();
-    }
+        currentMode = tab.dataset.tab;
+        currentData = currentMode === "quotes" ? quotes : poems;
+
+        showRandom(); // New content instantly when switching tabs
+    });
 });
 
-// ——— Particle Trail Effect (unchanged & beautiful) ———
+// Button
+btn.addEventListener("click", showRandom);
+
+// Initial load
+showRandom();
+
+// === Particle Trail Cursor Effect ===
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
