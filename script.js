@@ -1,3 +1,12 @@
+// === DISABLE FLOATING / BOUNCE ANIMATION VIA SCRIPT ===
+document.addEventListener("DOMContentLoaded", () => {
+    const content = document.querySelector(".content");
+    if (content) {
+        content.style.animation = "none";
+        content.style.transform = "none";
+    }
+});
+
 // === QUOTES ===
 const quotes = [
     { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
@@ -20,19 +29,26 @@ const quotes = [
     { text: "The quieter you become, the more you can hear.", author: "Ram Dass" },
     { text: "Everything you’ve ever wanted is on the other side of fear.", author: "George Addair" },
     { text: "Breathe. Let go. And remind yourself that this very moment is the only one you know you have for sure.", author: "Oprah Winfrey" },
-    { text: "What you think, you become. What you feel, you attract. What you imagine, you create.", author: "Buddha" },
-    { text: "The obstacle is the path.", author: "Zen Proverb" },
-    { text: "You are allowed to be both a masterpiece and a work in progress, simultaneously.", author: "Sophia Bush" },
-    { text: "The darkest nights produce the brightest stars.", author: "Unknown" },
-    { text: "Be the energy you want to attract.", author: "Unknown" },
-    { text: "And still, like dust, I rise.", author: "Maya Angelou" },
-    { text: "You were born with wings, why prefer to crawl through life?", author: "Rumi" },
-    { text: "In a world where you can be anything, be kind.", author: "Unknown" },
-    { text: "The sun will rise and set regardless. What we choose to do with the light while it’s here is up to us.", author: "Alexandra Elle" },
-    { text: "She remembered who she was and the game changed.", author: "Lalah Delia" },
-    { text: "The universe took its time on you.", author: "Unknown" },
-    { text: "You carry entire galaxies inside you.", author: "Unknown" },
-    { text: "Let the waters settle and you will see the moon and stars mirrored in your own being.", author: "Rumi" }
+    { text: "You do not have to see the whole path to take the next step.", author: "Unknown" },
+    { text: "Silence is not empty. It is full of answers.", author: "Unknown" },
+    { text: "What you seek is already within you.", author: "Rumi" },
+    { text: "Move quietly. The world is loud enough.", author: "Unknown" },
+    { text: "Your life is happening now. Not later.", author: "Unknown" },
+    { text: "Peace begins the moment you choose not to react.", author: "Unknown" },
+    { text: "Growth often feels like loss before it feels like freedom.", author: "Unknown" },
+    { text: "You are allowed to take up space without apology.", author: "Unknown" },
+    { text: "The mind calms when the truth is faced.", author: "Unknown" },
+    { text: "Not everything that weighs you down is yours to carry.", author: "Unknown" },
+    { text: "Stillness is where clarity lives.", author: "Unknown" },
+    { text: "You don’t need permission to become who you are.", author: "Unknown" },
+    { text: "Sometimes doing nothing is the most powerful move.", author: "Unknown" },
+    { text: "The moment you stop forcing is the moment things align.", author: "Unknown" },
+    { text: "Softness is not weakness. It is control.", author: "Unknown" },
+    { text: "Your presence is enough.", author: "Unknown" },
+    { text: "Healing is not linear, but it is honest.", author: "Unknown" },
+    { text: "You are not behind. You are unfolding.", author: "Unknown" },
+    { text: "Clarity comes after you let go, not before.", author: "Unknown" },
+    { text: "The quiet version of you is still powerful.", author: "Unknown" }
 ];
 
 // === POEMS ===
@@ -64,7 +80,7 @@ function showRandom() {
 
     authorEl.textContent = `— ${item.author}`;
 
-    // Fade animation
+    // Fade animation only (no movement)
     textEl.classList.remove("show");
     authorEl.classList.remove("show");
 
