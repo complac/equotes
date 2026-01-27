@@ -105,7 +105,7 @@ function initializeApp() {
     // Modal elements
     const modal = document.getElementById("auth-modal");
     const authLink = document.getElementById("auth-link");
-    const closeModal = document.querySelector(".close");
+    const closeModal = document.querySelector("#auth-modal .close");
     const authTabBtns = document.querySelectorAll(".auth-tab");
     const signinForm = document.getElementById("signin-form");
     const signupForm = document.getElementById("signup-form");
@@ -233,6 +233,7 @@ function initializeApp() {
 
     // === AUTH MODAL ===
     authLink.addEventListener("click", () => {
+        profileModal.classList.remove("active"); // Close profile if open
         modal.classList.add("active");
     });
 
@@ -585,15 +586,17 @@ function initializeApp() {
         }
 
         try {
-            await deleteDoc(doc(db, "quotes", quoteId));
+            // Get the quote data before deleting
+            const quoteDocRef = doc(db, "quotes", quoteId);
+            const quoteSnap = await getDoc(quoteDocRef);
             
-            // Reload profile
-            loadProfileData();
-            
-            // Remove from local arrays if present
-            const quoteDoc = await getDoc(doc(db, "quotes", quoteId));
-            if (quoteDoc.exists()) {
-                const data = quoteDoc.data();
+            if (quoteSnap.exists()) {
+                const data = quoteSnap.data();
+                
+                // Delete from Firebase
+                await deleteDoc(quoteDocRef);
+                
+                // Remove from local arrays if present
                 if (data.type === 'quote') {
                     quotes = quotes.filter(q => !(q.text === data.text && q.author === data.author));
                 } else {
@@ -601,6 +604,9 @@ function initializeApp() {
                 }
                 currentData = currentMode === "quotes" ? quotes : poems;
             }
+            
+            // Reload profile
+            loadProfileData();
 
         } catch (error) {
             console.error("Delete error:", error);
