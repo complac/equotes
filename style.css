@@ -365,6 +365,14 @@ button:hover {
 }
 
 /* === PROFILE MODAL === */
+#profile-modal {
+    z-index: 1500;
+}
+
+#auth-modal {
+    z-index: 2000;
+}
+
 .profile-modal-content {
     max-width: 600px;
     max-height: 80vh;
