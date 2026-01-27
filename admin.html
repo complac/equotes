@@ -6,6 +6,12 @@
     <title>admin panel - equotes</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        body {
+            overflow-y: auto;
+            align-items: flex-start;
+            padding: 2rem 0;
+        }
+
         .admin-container {
             max-width: 1200px;
             margin: 2rem auto;
@@ -188,6 +194,12 @@
             text-align: center;
             margin-top: 1rem;
         }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
@@ -195,7 +207,8 @@
     <div id="login-screen">
         <div class="login-box">
             <h1>admin login</h1>
-            <input type="password" id="admin-password" placeholder="enter admin password">
+            <input type="text" id="admin-username" placeholder="username">
+            <input type="password" id="admin-password" placeholder="password">
             <button onclick="adminLogin()">login</button>
             <p class="login-error" id="login-error"></p>
         </div>
@@ -221,103 +234,167 @@
                 </div>
             </div>
 
-            <div id="submissions-list"></div>
+            <div id="submissions-list">
+                <div class="loading">Loading submissions...</div>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-        // Simple admin password (change this to something secure!)
-        const ADMIN_PASSWORD = "admin123";
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getFirestore, collection, getDocs, query, where, updateDoc, deleteDoc, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
-        function adminLogin() {
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBb0cUXkKFr37hy4UzLBKiG_f3vB3Tsd-8",
+            authDomain: "equotes-56c91.firebaseapp.com",
+            projectId: "equotes-56c91",
+            storageBucket: "equotes-56c91.firebasestorage.app",
+            messagingSenderId: "664845875215",
+            appId: "1:664845875215:web:ef73086d7df30c36b54b7a",
+            measurementId: "G-BQGW1CBH0Y"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Make available globally
+        window.firebaseAuth = auth;
+        window.firebaseDb = db;
+        window.firebaseModules = {
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            collection,
+            getDocs,
+            query,
+            where,
+            updateDoc,
+            deleteDoc,
+            doc,
+            getDoc
+        };
+
+        // Admin credentials (you can change these)
+        const ADMIN_USERNAME = "admin";
+        const ADMIN_PASSWORD = "admin123"; // CHANGE THIS!
+
+        let currentAdmin = null;
+
+        // Admin login
+        window.adminLogin = async function() {
+            const username = document.getElementById('admin-username').value.trim();
             const password = document.getElementById('admin-password').value;
             const error = document.getElementById('login-error');
 
-            if (password === ADMIN_PASSWORD) {
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('admin-panel').style.display = 'block';
                 loadPendingSubmissions();
             } else {
-                error.textContent = 'incorrect password';
+                error.textContent = 'incorrect credentials';
             }
-        }
+        };
 
-        function loadPendingSubmissions() {
-            const pending = submissions.getPending();
+        // Load pending submissions
+        async function loadPendingSubmissions() {
             const list = document.getElementById('submissions-list');
             
-            // Update stats
-            const totalPending = pending.quotes.length + pending.poems.length;
-            document.getElementById('pending-count').textContent = totalPending;
+            try {
+                // Get pending submissions
+                const pendingQuery = query(collection(db, "quotes"), where("status", "==", "pending"));
+                const pendingSnapshot = await getDocs(pendingQuery);
 
-            // Get approved count
-            const stored = localStorage.getItem('equotes_submissions');
-            if (stored) {
-                const data = JSON.parse(stored);
-                const approvedCount = (data.approved?.quotes?.length || 0) + (data.approved?.poems?.length || 0);
-                document.getElementById('approved-count').textContent = approvedCount;
-            }
+                // Get approved count
+                const approvedQuery = query(collection(db, "quotes"), where("status", "==", "approved"));
+                const approvedSnapshot = await getDocs(approvedQuery);
 
-            // Display submissions
-            if (totalPending === 0) {
+                // Update stats
+                document.getElementById('pending-count').textContent = pendingSnapshot.size;
+                document.getElementById('approved-count').textContent = approvedSnapshot.size;
+
+                // Display submissions
+                if (pendingSnapshot.empty) {
+                    list.innerHTML = `
+                        <div class="empty-state">
+                            <h2>all caught up!</h2>
+                            <p>no pending submissions to review</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                list.innerHTML = '';
+
+                pendingSnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const date = data.createdAt ? new Date(data.createdAt.toDate()).toLocaleDateString() : 'recently';
+                    
+                    const card = document.createElement('div');
+                    card.className = 'submission-card';
+                    card.innerHTML = `
+                        <div class="submission-header">
+                            <span class="submission-type">${data.type}</span>
+                            <span class="submission-meta">
+                                by ${data.submittedByUsername} • ${date}
+                            </span>
+                        </div>
+                        <div class="submission-text">${data.text}</div>
+                        <div class="submission-author">— ${data.author}</div>
+                        <div class="submission-actions">
+                            <button class="btn-approve" onclick="approveQuote('${doc.id}')">
+                                approve
+                            </button>
+                            <button class="btn-reject" onclick="rejectQuote('${doc.id}')">
+                                reject
+                            </button>
+                        </div>
+                    `;
+                    
+                    list.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error("Error loading submissions:", error);
                 list.innerHTML = `
                     <div class="empty-state">
-                        <h2>all caught up!</h2>
-                        <p>no pending submissions to review</p>
+                        <h2>error loading submissions</h2>
+                        <p>${error.message}</p>
                     </div>
                 `;
+            }
+        }
+
+        // Approve quote
+        window.approveQuote = async function(quoteId) {
+            try {
+                await updateDoc(doc(db, "quotes", quoteId), {
+                    status: 'approved'
+                });
+                loadPendingSubmissions();
+            } catch (error) {
+                console.error("Error approving:", error);
+                alert('Failed to approve quote');
+            }
+        };
+
+        // Reject quote
+        window.rejectQuote = async function(quoteId) {
+            if (!confirm('Are you sure you want to reject this submission?')) {
                 return;
             }
-
-            list.innerHTML = '';
-
-            // Show quotes
-            pending.quotes.forEach(item => {
-                list.innerHTML += createSubmissionCard(item, 'quote');
-            });
-
-            // Show poems
-            pending.poems.forEach(item => {
-                list.innerHTML += createSubmissionCard(item, 'poem');
-            });
-        }
-
-        function createSubmissionCard(item, type) {
-            const date = new Date(item.submittedAt).toLocaleDateString();
-            return `
-                <div class="submission-card">
-                    <div class="submission-header">
-                        <span class="submission-type">${type}</span>
-                        <span class="submission-meta">
-                            by ${item.submittedBy} • ${date}
-                        </span>
-                    </div>
-                    <div class="submission-text">${item.text}</div>
-                    <div class="submission-author">— ${item.author}</div>
-                    <div class="submission-actions">
-                        <button class="btn-approve" onclick="approve(${item.id}, '${type}')">
-                            approve
-                        </button>
-                        <button class="btn-reject" onclick="reject(${item.id}, '${type}')">
-                            reject
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function approve(id, type) {
-            if (submissions.approveSubmission(id, type)) {
+            
+            try {
+                await deleteDoc(doc(db, "quotes", quoteId));
                 loadPendingSubmissions();
+            } catch (error) {
+                console.error("Error rejecting:", error);
+                alert('Failed to reject quote');
             }
-        }
-
-        function reject(id, type) {
-            if (submissions.rejectSubmission(id, type)) {
-                loadPendingSubmissions();
-            }
-        }
+        };
 
         // Allow Enter key to login
         document.getElementById('admin-password')?.addEventListener('keypress', (e) => {
