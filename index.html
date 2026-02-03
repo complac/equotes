@@ -3,188 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>equotes & poems</title>
+    <title>shutdown</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="particles"></canvas>
-
-    <!-- Profile Icon (Top Right) -->
-    <div id="profile-icon" class="profile-icon" style="display: none;">
-        <button id="profile-btn" class="profile-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-            </svg>
-        </button>
-    </div>
-
     <div class="container">
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="quotes">quotes</button>
-            <button class="tab-btn" data-tab="poems">poems</button>
-            <button class="tab-btn" data-tab="submit">submit</button>
-        </div>
-
-        <div class="content">
-            <!-- Quotes/Poems View -->
-            <div id="view-content" class="tab-content active">
-                <p id="text" class="fade">loading inspiration...</p>
-                <p id="author" class="fade"></p>
-                <button id="new-btn">generate</button>
-                <p class="discord-text">quotes & poems for the world</p>
-            </div>
-
-            <!-- Submit View -->
-            <div id="submit-content" class="tab-content">
-                <div id="submit-form">
-                    <h2 class="submit-title">share your wisdom</h2>
-                    
-                    <div class="form-group">
-                        <label for="submit-type">type</label>
-                        <select id="submit-type">
-                            <option value="quote">quote</option>
-                            <option value="poem">poem</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="submit-text">your quote or poem</label>
-                        <textarea id="submit-text" rows="4" placeholder="enter your wisdom here..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="submit-author">author name</label>
-                        <input type="text" id="submit-author" placeholder="your name or 'anonymous'">
-                    </div>
-
-                    <button id="submit-quote-btn">submit</button>
-                    <p class="submit-status" id="submit-status"></p>
-
-                    <p class="auth-prompt">
-                        <span id="auth-link">sign in / sign up</span>
-                    </p>
-                </div>
-            </div>
-        </div>
+        <h1 style="font-size: 3.8rem; margin-bottom: 1.5rem;">shutdown</h1>
+        <p style="font-size: 1.4rem; max-width: 600px; margin: 0 auto 2.5rem;">
+            shutdown<br>
+            shutdown
+        </p>
+        <p style="font-size: 1.1rem; opacity: 0.6;">
+            shutdown
+        </p>
     </div>
-
-    <!-- Profile Modal -->
-    <div id="profile-modal" class="modal">
-        <div class="modal-content profile-modal-content">
-            <span class="close" id="profile-close">&times;</span>
-            
-            <div class="profile-header">
-                <div class="profile-avatar">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="8" r="4"/>
-                        <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-                    </svg>
-                </div>
-                <h2 id="profile-username">username</h2>
-                <p class="profile-join-date" id="profile-join-date">joined: —</p>
-            </div>
-
-            <div class="profile-stats">
-                <div class="stat-item">
-                    <div class="stat-number" id="profile-approved-count">0</div>
-                    <div class="stat-label">approved</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="profile-pending-count">0</div>
-                    <div class="stat-label">pending</div>
-                </div>
-            </div>
-
-            <div class="profile-section">
-                <h3>your approved quotes & poems</h3>
-                <div id="profile-quotes-list"></div>
-            </div>
-
-            <button id="sign-out-btn" class="sign-out-btn">sign out</button>
-        </div>
-    </div>
-
-    <!-- Auth Modal -->
-    <div id="auth-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            
-            <div id="auth-tabs">
-                <button class="auth-tab active" data-auth="signin">sign in</button>
-                <button class="auth-tab" data-auth="signup">sign up</button>
-            </div>
-
-            <!-- Sign In Form -->
-            <form id="signin-form" class="auth-form active">
-                <h2>welcome back</h2>
-                <input type="text" id="signin-username" placeholder="username" required>
-                <input type="password" id="signin-password" placeholder="password" required>
-                <button type="submit">sign in</button>
-                <p class="auth-status" id="signin-status"></p>
-            </form>
-
-            <!-- Sign Up Form -->
-            <form id="signup-form" class="auth-form">
-                <h2>create account</h2>
-                <input type="text" id="signup-username" placeholder="username" required>
-                <input type="password" id="signup-password" placeholder="password" required>
-                <input type="password" id="signup-confirm" placeholder="confirm password" required>
-                <button type="submit">sign up</button>
-                <p class="auth-status" id="signup-status"></p>
-            </form>
-        </div>
-    </div>
-
-    <!-- Firebase SDKs -->
-    <script type="module">
-        // Import Firebase modules
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-        import { getFirestore, collection, addDoc, getDocs, query, where, updateDoc, deleteDoc, doc, setDoc, getDoc, serverTimestamp, orderBy } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-
-        // Your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyBb0cUXkKFr37hy4UzLBKiG_f3vB3Tsd-8",
-            authDomain: "equotes-56c91.firebaseapp.com",
-            projectId: "equotes-56c91",
-            storageBucket: "equotes-56c91.firebasestorage.app",
-            messagingSenderId: "664845875215",
-            appId: "1:664845875215:web:ef73086d7df30c36b54b7a",
-            measurementId: "G-BQGW1CBH0Y"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        // Make Firebase available globally
-        window.firebaseAuth = auth;
-        window.firebaseDb = db;
-        window.firebaseModules = {
-            createUserWithEmailAndPassword,
-            signInWithEmailAndPassword,
-            signOut,
-            onAuthStateChanged,
-            collection,
-            addDoc,
-            getDocs,
-            query,
-            where,
-            updateDoc,
-            deleteDoc,
-            doc,
-            setDoc,
-            getDoc,
-            serverTimestamp,
-            orderBy
-        };
-
-        // Load the main script after Firebase is ready
-        const script = document.createElement('script');
-        script.src = 'script.js';
-        document.body.appendChild(script);
-    </script>
 </body>
 </html>
