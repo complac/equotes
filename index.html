@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>equotes</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 style="font-size: 3.8rem; margin-bottom: 1.5rem;"></h1>
-        <p style="font-size: 1.4rem; max-width: 600px; margin: 0 auto 2.5rem;">
-            <br>
-        </p>
-        <p style="font-size: 1.1rem; opacity: 0.6;">
-            shutdown - bio
-        </p>
-    </div>
+
+    <header class="header">
+        <span class="logo">equotes</span>
+        <nav class="nav">
+            <button class="tab active" data-tab="quotes">quotes</button>
+            <button class="tab" data-tab="poems">poems</button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="stage">
+            <blockquote id="text" class="quote-text"></blockquote>
+            <cite id="author" class="quote-author"></cite>
+        </div>
+        <button id="new-btn" class="next-btn">generate</button>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-
