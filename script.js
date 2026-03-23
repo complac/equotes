@@ -27,6 +27,20 @@ const quotes = [
     { text: "You are not behind. You are unfolding.", author: "Unknown" },
     { text: "Clarity comes after you let go, not before.", author: "Unknown" },
     { text: "The quiet version of you is still powerful.", author: "Unknown" },
+    { text: "Water keeps you hydrated, too much of it kills you.", author: "Unknown" },
+    { text: "Everything but change itself is temporary.", author: "Unknown" },
+    { text: "Chains are most effective when you convince the prisoner that they are jewellery.", author: "Unknown" },
+    { text: "Walk on your broken foot and leave no marks of your hand on anyone’s shoulder.", author: "Fyodor Dostoevsky" },
+    { text: "How can i blame the wind for the mess it made when I opened the window?", author: "Unknown" },
+    { text: "I’m not upset you lied to me, I’m upset i can’t trust you again.", author: "Unknown" },
+    { text: "The nature of the snake is to bite, even when no threat is present.", author: "Unknown" },
+    { text: "For a flower to flourish, it must rain.", author: "Unknown" },
+    { text: "A ship is safe when its in its port, but thats not what they are made for.", author: "Unknown" },
+    { text: "You don’t learn to swim by looking at water.", author: "Unknown" },
+    { text: "The snow goose needs not bathe to make itself white, neither need you do anything but be yourself.", author: "Chinese Proverb" },
+    { text: "Don’t let your food get cold watching someone else’s plate.", author: "Unknown" },
+    { text: "Never feed a horse you won't ride.", author: "Unknown" },
+
 ];
 
 // ============================================================
