@@ -40,6 +40,8 @@ const quotes = [
     { text: "The snow goose needs not bathe to make itself white, neither need you do anything but be yourself.", author: "Chinese Proverb" },
     { text: "Don’t let your food get cold watching someone else’s plate.", author: "Unknown" },
     { text: "Never feed a horse you won't ride.", author: "Unknown" },
+    { text: "Nothing changes if nothing changes.", author: "Unknown" },
+
 
 ];
 
