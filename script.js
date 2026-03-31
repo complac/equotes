@@ -41,8 +41,8 @@ const quotes = [
     { text: "Don’t let your food get cold watching someone else’s plate.", author: "Unknown" },
     { text: "Never feed a horse you won't ride.", author: "Unknown" },
     { text: "Nothing changes if nothing changes.", author: "Unknown" },
-    { text: "It always seems impossible until it's done.", author: "Unknown" },
-
+    { text: "It always seems impossible until it's done.", author: "Unknown" }, 
+    { text: "A fish with its mouth closed never gets caught.", author: "Unknown" },
 
 ];
 
