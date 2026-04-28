@@ -44,7 +44,7 @@ const quotes = [
     { text: "It always seems impossible until it's done.", author: "Unknown" },  
     { text: "A fish with its mouth closed never gets caught.", author: "Unknown" },
     { text: "If the road is easy, the destination is worthless.", author: "Unknown" },
-    { text: "If you rush the brush you will spoil the paint.", author: "Unknown" },
+    { text: "If you rush the brush you will spoil the paint.", author: "Kaden" },
 
 ];
 
