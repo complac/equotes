@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>equotes</title>
+    <title>quotes for the world</title>
+    <meta property="og:title" content="quotes for the world">
+    <meta property="og:description" content="A collection of quotes and poems to reflect on.">
+    <meta property="og:image" content="GarganEmbed.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="quotes for the world">
+    <meta name="twitter:description" content="A collection of quotes and poems to reflect on.">
+    <meta name="twitter:image" content="GarganEmbed.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
@@ -32,7 +40,25 @@
             <cite id="author" class="quote-author"></cite>
         </div>
         <button id="new-btn" class="next-btn">generate</button>
+        <p class="inquiry-text">@biomp4 on discord for inquiries</p>
     </main>
+
+    <!-- Background audio -->
+    <audio id="bg-audio" loop src="SleepWell528Hz.mp3"></audio>
+
+    <!-- Mute toggle — bottom right corner -->
+    <button id="mute-btn" class="mute-btn" title="Toggle music">
+        <svg id="icon-sound" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+        <svg id="icon-mute" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+    </button>
 
     <script src="script.js"></script>
 </body>
