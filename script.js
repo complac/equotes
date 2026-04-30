@@ -48,10 +48,6 @@ const quotes = [
 
 ];
 
-// ============================================================
-//  POEMS — add or remove as many as you want
-//  use \n to create line breaks inside a poem
-// ============================================================
 const poems = [
     { text: "I am not a day, I am not a night\nI am the pause between heartbeats", author: "Atticus" },
     { text: "She was a storm\nnot the kind that destroys\nbut the kind that cleanses", author: "Unknown" },
@@ -61,11 +57,22 @@ const poems = [
     { text: "Tell me, what is it you plan to do\nwith your one wild and precious life?", author: "Mary Oliver" },
     { text: "We are all just walking each other home.", author: "Ram Dass" },
     { text: "You do not have to be good.\nYou do not have to walk on your knees\nfor a hundred miles through the desert repenting.", author: "Mary Oliver" },
+    { text: "Do not go gentle into that good night.\nRage, rage against the dying of the light.", author: "Dylan Thomas" },
+    { text: "I am not resigned:\nthe heart is more than the brain.", author: "Edna St. Vincent Millay" },
+    { text: "Out of the night that covers me,\nblack as the pit from pole to pole,\nI thank whatever gods may be\nfor my unconquerable soul.", author: "William Ernest Henley" },
+    { text: "It matters not how strait the gate,\nhow charged with punishments the scroll.\nI am the master of my fate,\nI am the captain of my soul.", author: "William Ernest Henley" },
+    { text: "The world is too much with us; late and soon,\ngetting and spending, we lay waste our powers.", author: "William Wordsworth" },
+    { text: "To strive, to seek, to find, and not to yield.", author: "Alfred Lord Tennyson" },
+    { text: "I have measured out my life with coffee spoons.", author: "T.S. Eliot" },
+    { text: "Do I dare\ndisturb the universe?", author: "T.S. Eliot" },
+    { text: "What happens to a dream deferred?\nDoes it dry up like a raisin in the sun?", author: "Langston Hughes" },
+    { text: "Two roads diverged in a wood, and I—\nI took the one less traveled by.", author: "Robert Frost" },
+    { text: "The woods are lovely, dark and deep,\nbut I have promises to keep,\nand miles to go before I sleep.", author: "Robert Frost" },
+    { text: "Nothing gold can stay.", author: "Robert Frost" },
+    { text: "In the room the women come and go\ntalking of Michelangelo.", author: "T.S. Eliot" },
+    { text: "We shall not cease from exploration\nand the end of all our exploring\nwill be to arrive where we started\nand know the place for the first time.", author: "T.S. Eliot" },
 ];
 
-// ============================================================
-//  APP LOGIC — no need to edit below this line
-// ============================================================
 (function () {
     let currentMode = "quotes";
     let currentData = quotes;
@@ -78,22 +85,17 @@ const poems = [
 
     function showRandom() {
         if (!currentData.length) return;
-
         let index;
         do {
             index = Math.floor(Math.random() * currentData.length);
         } while (index === lastIndex && currentData.length > 1);
         lastIndex = index;
-
         const item = currentData[index];
-
         textEl.classList.add("out");
         authorEl.classList.add("out");
-
         setTimeout(() => {
             textEl.textContent   = item.text;
             authorEl.textContent = item.author || "";
-
             textEl.classList.remove("out");
             authorEl.classList.remove("out");
         }, 300);
