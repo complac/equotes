@@ -151,3 +151,63 @@ html, body {
     .main   { padding: 32px 24px; }
     .stage  { padding: 32px 28px; }
 }
+
+/* ── MUTE BUTTON ─────────────────────────────── */
+.mute-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 36px;
+    z-index: 20;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--rule);
+    color: var(--dim);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.mute-btn:hover {
+    border-color: rgba(255,255,255,0.25);
+    color: var(--ink);
+}
+
+/* ── MUTE BUTTON ─────────────────────────────── */
+.mute-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 36px;
+    z-index: 20;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--rule);
+    color: var(--dim);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.mute-btn:hover {
+    border-color: rgba(255,255,255,0.25);
+    color: var(--ink);
+}
+
+/* ── INQUIRY TEXT ────────────────────────────── */
+.inquiry-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: -28px;
+    opacity: 0.5;
+}
