@@ -1,6 +1,3 @@
-// ============================================================
-//  QUOTES — add or remove as many as you want
-// ============================================================
 const quotes = [
     { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
     { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
@@ -30,22 +27,16 @@ const quotes = [
     { text: "Water keeps you hydrated, too much of it kills you.", author: "Unknown" },
     { text: "Everything but change itself is temporary.", author: "Unknown" },
     { text: "Chains are most effective when you convince the prisoner that they are jewellery.", author: "Unknown" },
-    { text: "Walk on your broken foot and leave no marks of your hand on anyone’s shoulder.", author: "Fyodor Dostoevsky" },
+    { text: "Walk on your broken foot and leave no marks of your hand on anyone's shoulder.", author: "Fyodor Dostoevsky" },
     { text: "How can i blame the wind for the mess it made when I opened the window?", author: "Unknown" },
-    { text: "I’m not upset you lied to me, I’m upset i can’t trust you again.", author: "Unknown" },
+    { text: "I'm not upset you lied to me, I'm upset i can't trust you again.", author: "Unknown" },
     { text: "The nature of the snake is to bite, even when no threat is present.", author: "Unknown" },
     { text: "For a flower to flourish, it must rain.", author: "Unknown" },
     { text: "A ship is safe when its in its port, but thats not what they are made for.", author: "Unknown" },
-    { text: "You don’t learn to swim by looking at water.", author: "Unknown" },
+    { text: "You don't learn to swim by looking at water.", author: "Unknown" },
     { text: "The snow goose needs not bathe to make itself white, neither need you do anything but be yourself.", author: "Chinese Proverb" },
-    { text: "Don’t let your food get cold watching someone else’s plate.", author: "Unknown" },
+    { text: "Don't let your food get cold watching someone else's plate.", author: "Unknown" },
     { text: "Never feed a horse you won't ride.", author: "Unknown" },
-    { text: "Nothing changes if nothing changes.", author: "Unknown" },
-    { text: "It always seems impossible until it's done.", author: "Unknown" },  
-    { text: "A fish with its mouth closed never gets caught.", author: "Unknown" },
-    { text: "If the road is easy, the destination is worthless.", author: "Unknown" },
-    { text: "If you rush the brush you will spoil the paint.", author: "Kaden" },
-
 ];
 
 const poems = [
@@ -114,4 +105,36 @@ const poems = [
 
     newBtn.addEventListener("click", showRandom);
     showRandom();
+})();
+
+// ============================================================
+//  AUDIO — plays on first interaction, mute/unmute toggle
+// ============================================================
+(function () {
+    const audio   = document.getElementById("bg-audio");
+    const muteBtn = document.getElementById("mute-btn");
+    const iconOn  = document.getElementById("icon-sound");
+    const iconOff = document.getElementById("icon-mute");
+
+    audio.volume = 1;
+    let started = false;
+
+    // Try autoplay immediately, fall back to first interaction
+    audio.play().catch(() => {
+        function startAudio() {
+            if (started) return;
+            started = true;
+            audio.play().catch(() => {});
+            document.removeEventListener("click", startAudio);
+        }
+        document.addEventListener("click", startAudio);
+    });
+
+    // Mute / unmute toggle
+    muteBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // don't double-trigger startAudio
+        audio.muted = !audio.muted;
+        iconOn.style.display  = audio.muted ? "none"  : "block";
+        iconOff.style.display = audio.muted ? "block" : "none";
+    });
 })();
