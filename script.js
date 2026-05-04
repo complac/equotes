@@ -37,6 +37,11 @@ const quotes = [
     { text: "The snow goose needs not bathe to make itself white, neither need you do anything but be yourself.", author: "Chinese Proverb" },
     { text: "Don't let your food get cold watching someone else's plate.", author: "Unknown" },
     { text: "Never feed a horse you won't ride.", author: "Unknown" },
+    { text: "If there’s an obvious issue there’s an obvious solution.", author: "Unknown" },
+    { text: "Winners lose more than losers ever will.", author: "Unknown" },
+    { text: "I met my younger self for coffee today. I lit a cigarette, he left the table.", author: "Stephen Okpelle" },
+    
+
 ];
 
 const poems = [
