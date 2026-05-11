@@ -41,6 +41,7 @@ const quotes = [
     { text: "Winners lose more than losers ever will.", author: "Unknown" },
     { text: "I met my younger self for coffee today. I lit a cigarette, he left the table.", author: "Stephen Okpelle" },
     { text: "Not every lion that chased a deer caught it, but every lion that caught the deer chased it.", author: "Unknown" },
+    { text: "You gain no materials by breaking down the builds of others.", author: "Kyrsed" },
     
 
 ];
