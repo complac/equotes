@@ -42,6 +42,7 @@ const quotes = [
     { text: "I met my younger self for coffee today. I lit a cigarette, he left the table.", author: "Stephen Okpelle" },
     { text: "Not every lion that chased a deer caught it, but every lion that caught the deer chased it.", author: "Unknown" },
     { text: "You gain no materials by breaking down the builds of others.", author: "Kyrsed" },
+    { text: "Your flesh could care less about hell, because it knows it's not going with you.", author: "Unknown" },
     
 
 ];
