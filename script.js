@@ -44,8 +44,6 @@ const quotes = [
     { text: "Not every lion that chased a deer caught it, but every lion that caught the deer chased it.", author: "Unknown" },
     { text: "You gain no materials by breaking down the builds of others.", author: "Kyrsed" },
     { text: "Your flesh could care less about hell, because it knows it's not going with you.", author: "Unknown" },
-    
-
 ];
 
 const poems = [
@@ -77,18 +75,38 @@ const poems = [
     let currentMode = "quotes";
     let currentData = quotes;
     let lastIndex   = -1;
+    let bag         = []; // shuffled queue of indices not yet shown this cycle
 
     const textEl   = document.getElementById("text");
     const authorEl = document.getElementById("author");
     const newBtn   = document.getElementById("new-btn");
     const tabs     = document.querySelectorAll(".tab");
 
+    // Fisher-Yates shuffle
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    function refillBag() {
+        bag = shuffle(currentData.map((_, i) => i));
+        // avoid the new bag starting with the same item that just closed the last cycle
+        if (bag.length > 1 && bag[bag.length - 1] === lastIndex) {
+            [bag[bag.length - 1], bag[bag.length - 2]] = [bag[bag.length - 2], bag[bag.length - 1]];
+        }
+    }
+
+    function nextIndex() {
+        if (bag.length === 0) refillBag();
+        return bag.pop();
+    }
+
     function showRandom() {
         if (!currentData.length) return;
-        let index;
-        do {
-            index = Math.floor(Math.random() * currentData.length);
-        } while (index === lastIndex && currentData.length > 1);
+        const index = nextIndex();
         lastIndex = index;
         const item = currentData[index];
         textEl.classList.add("out");
@@ -108,6 +126,7 @@ const poems = [
             currentMode = tab.dataset.tab;
             currentData = currentMode === "quotes" ? quotes : poems;
             lastIndex   = -1;
+            bag         = []; // force a fresh shuffle for the newly selected list
             showRandom();
         });
     });
