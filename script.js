@@ -45,6 +45,13 @@ const quotes = [
     { text: "Not every lion that chased a deer caught it, but every lion that caught the deer chased it.", author: "Unknown" },
     { text: "You gain no materials by breaking down the builds of others.", author: "Kyrsed" },
     { text: "Your flesh could care less about hell, because it knows it's not going with you.", author: "Unknown" },
+    { text: "If you fake bravery when you’re terrified, that is bravery.", author: "Chris Williamson" },
+    { text: "An enemy will agree, but a friend will argue.", author: "Russian Proverb" },
+    { text: "The purpose of knowledge is action, not knowledge.", author: "Aristotle" },
+    { text: "If you ask the grass, the zebra is the monster and the lion is the protector.", author: "Unknown" },
+    { text: "Don’t celebrate in sin with what you achieved through prayer.", author: "Unknown" },
+    { text: "I did not conquer the world by listening to men who had conquered nothing", author: "Alexander the Great" },
+
 ];
 
 const poems = [
