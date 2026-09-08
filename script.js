@@ -34,7 +34,7 @@ const quotes = [
     { text: "I'm not upset you lied to me, I'm upset i can't trust you again.", author: "Unknown" },
     { text: "The nature of the snake is to bite, even when no threat is present.", author: "Unknown" },
     { text: "For a flower to flourish, it must rain.", author: "Unknown" },
-    { text: "A ship is safe when its in its port, but thats not what they are made for.", author: "Unknown" },
+    { text: "A ship is safe in its harbor, but that’s not what ships are built for.", author: "Unknown" },
     { text: "You don't learn to swim by looking at water.", author: "Unknown" },
     { text: "The snow goose needs not bathe to make itself white, neither need you do anything but be yourself.", author: "Chinese Proverb" },
     { text: "Don't let your food get cold watching someone else's plate.", author: "Unknown" },
