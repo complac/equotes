@@ -51,6 +51,15 @@ const quotes = [
     { text: "If you ask the grass, the zebra is the monster and the lion is the protector.", author: "Unknown" },
     { text: "Don’t celebrate in sin with what you achieved through prayer.", author: "Unknown" },
     { text: "I did not conquer the world by listening to men who had conquered nothing", author: "Alexander the Great" },
+    { text: "A foolish man pays for an easier path, while a wise man prays for stronger legs.", author: "Unknown" },
+    { text: "A clear rejection is always better than a fake promise.", author: "— Zig Ziglar" },    
+    { text: "The ocean never rushes yet it reaches every shore.", author: "— Unknown" },   
+    { text: "The purpose of knowledge is action, not knowledge.", author: "— Aristotle" },
+    { text: "An enemy will agree, but a friend will argue.", author: "— Russian Proverb" },
+    { text: "If you fake bravery when you’re terrified, that is bravery.", author: "— Chris Williamson" },
+    { text: "The fastest way to kill an idea is to ask many people what they think.", author: "— Unknown" },
+    { text: "An eye for an eye makes the whole world blind.", author: "— Mahatma Gandhi" },
+
 
 ];
 
