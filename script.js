@@ -1,7 +1,7 @@
 const quotes = [
     { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-    { text: "Do not be afraid of an army of lions led by sheep. Be afraid of an army of sheep led by a lion.", author: "Alexander the Great" },
-    { text: "“If you ask the grass, the zebra is the monster and the lion is the protector.", author: "Unknown" },
+    { text: "Do not be afraid of an army of lions led by a sheep. Be afraid of an army of sheep led by a lion.", author: "Alexander the Great" },
+    { text: "If you ask the grass, the zebra is the monster and the lion is the protector.", author: "Unknown" },
     { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
     { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
     { text: "It is during our darkest moments that we must focus to see the light.", author: "Aristotle" },
@@ -31,7 +31,6 @@ const quotes = [
     { text: "Chains are most effective when you convince the prisoner that they are jewellery.", author: "Unknown" },
     { text: "Walk on your broken foot and leave no marks of your hand on anyone's shoulder.", author: "Fyodor Dostoevsky" },
     { text: "How can i blame the wind for the mess it made when I opened the window?", author: "Unknown" },
-    { text: "I'm not upset you lied to me, I'm upset i can't trust you again.", author: "Unknown" },
     { text: "The nature of the snake is to bite, even when no threat is present.", author: "Unknown" },
     { text: "For a flower to flourish, it must rain.", author: "Unknown" },
     { text: "A ship is safe in its harbor, but that’s not what ships are built for.", author: "Unknown" },
@@ -41,9 +40,7 @@ const quotes = [
     { text: "Never feed a horse you won't ride.", author: "Unknown" },
     { text: "If there’s an obvious issue there’s an obvious solution.", author: "Unknown" },
     { text: "Winners lose more than losers ever will.", author: "Unknown" },
-    { text: "I met my younger self for coffee today. I lit a cigarette, he left the table.", author: "Stephen Okpelle" },
     { text: "Not every lion that chased a deer caught it, but every lion that caught the deer chased it.", author: "Unknown" },
-    { text: "You gain no materials by breaking down the builds of others.", author: "Kyrsed" },
     { text: "Your flesh could care less about hell, because it knows it's not going with you.", author: "Unknown" },
     { text: "If you fake bravery when you’re terrified, that is bravery.", author: "Chris Williamson" },
     { text: "An enemy will agree, but a friend will argue.", author: "Russian Proverb" },
@@ -59,7 +56,6 @@ const quotes = [
     { text: "If you fake bravery when you’re terrified, that is bravery.", author: "— Chris Williamson" },
     { text: "The fastest way to kill an idea is to ask many people what they think.", author: "— Unknown" },
     { text: "An eye for an eye makes the whole world blind.", author: "— Mahatma Gandhi" },
-
 
 ];
 
